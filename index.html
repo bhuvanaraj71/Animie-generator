@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <blockquote id="animieElement">
+            <p>Loading</p>
+
+        </blockquote>
+        <button onclick="getRandomAnimie()">Generate Anime</button>
+    </div>
+
+    <script>
+        const animie = [
+            {
+                Name: "Naruto Uzumaki",
+                Image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSK2dvJDvKtd61SaMoFNEHxfjV5pwtXNZ-jTIC909tp650dARQX",
+                Description: "He is a ninja from the fictional Hidden Leaf Village. As a boy, Naruto is ridiculed and ostracized on account of the Nine-Tailed Demon Fox—a malevolent creature that attacked Konohagakure—that was sealed away in his body",
+
+            },
+
+            {
+                Name: "Monkey D. Luffy",
+                Image: "https://upload.wikimedia.org/wikipedia/en/c/cb/Monkey_D_Luffy.png",
+                Description: "Monkey D. Luffy, also known as Straw Hat Luffy, is a fictional character and the protagonist of the One Piece manga series, created by Eiichiro Oda. ",
+
+            },
+            {
+                Name: "Light Yagami",
+                Image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Light_from_Death_Note.jpg/220px-Light_from_Death_Note.jpg",
+                Description: "Light Yagami is the main protagonist of the manga series Death Note, created by Tsugumi Ohba and Takeshi Obata.",
+
+            },
+            {
+                Name: "Ichigo Kurosaki",
+                Image: "https://upload.wikimedia.org/wikipedia/en/1/1e/IchigoKurosakiBleach.jpg",
+                Description: "chigo Kurosaki is a fictional character in the Bleach manga series and its adaptations created by Tite Kubo. He is the main protagonist of the series, who receives Soul Reaper powers after meeting Rukia Kuchiki, a Soul Reaper assigned to patrol around the fictional city of Karakura Town",
+
+            },
+            {
+                Name: "Goku",
+                Image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFJgGl1tftHz18lxrWLkqOBrEp55bixzhTAp9B9noVZAyA5MEF6g7cfeFEvWgNY1g-6l4&usqp=CAU",
+                Description: "Son Goku, born Kakarot, is a male Saiyan and the main protagonist of the Dragon Ball metaseries created by Akira Toriyama",
+
+            },
+            {
+                Name: "Guts",
+                Image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTg6sxxII24KZ8pMM1CjNChM14LJF7kyPoeM2yMj3oCPqICmGvR",
+                Description: "Guts is a fictional character and the protagonist from the manga Berserk by Kentaro Miura. Guts is a mercenary who travels from company to company and companionship to companionship.",
+
+            },
+            {
+                Name: "Alucard",
+                Image: "https://i.etsystatic.com/12198131/r/il/faf388/3056538074/il_570xN.3056538074_i6vb.jpg",
+                Description: "Alucard, previously Count Dracula, is a fictional character and the protagonist of the Hellsing manga and anime series created by Kouta Hirano",
+
+            },
+
+        ];
+
+        function getRandomAnimie() {
+            const animieElement = document.getElementById('animieElement');
+            const randomIndex = Math.floor(Math.random() * animie.length);
+            const { Name, Image, Description } = animie[randomIndex];
+
+           
+            animieElement.innerHTML = `<p >${Name}</p>
+                <img src="${Image}" alt="${Description}">
+                <p>${Description}</p>`;
+
+            const imageElement = document.createElement('img');
+            imageElement.alt = Description;
+            imageElement.src = Image;
+
+
+            const existingImage = animieElement.querySelector('img');
+            if (existingImage) {
+                animieElement.replaceChild(imageElement, existingImage);
+            } else {
+                animieElement.appendChild(imageElement);
+            }
+        }
+        getRandomAnimie();
+    </script>
+</body>
+
+</html>
